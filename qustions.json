@@ -3,7 +3,7 @@
       "questionName": "Q6a",
       "nextQuestion": "Q7",
       "questionText": "Are you looking to increase strength or endurance?",
-      "chName": ". Wellness Interests",
+      "chName": "Wellness Interests",
       "questionNumber": 16,
       "followUp": true
     },
@@ -27,7 +27,7 @@
       "questionName": "Q6",
       "nextQuestion": "Q7",
       "questionText": "What was your main wellness activity last month?",
-      "chName": ". Wellness Interests",
+      "chName": "Wellness Interests",
       "questionNumber": 15,
       "followUp": false
     },
@@ -66,7 +66,7 @@
     {
       "questionName": "Q8b",
       "nextQuestion": "Q9",
-      "questionText": " Are you interested in mitochondrial health or anti-aging solutions?",
+      "questionText": "Are you interested in mitochondrial health or anti-aging solutions?",
       "chName": "Personalization",
       "questionNumber": 23,
       "followUp": true
@@ -75,7 +75,7 @@
       "questionName": "Q7",
       "nextQuestion": "Q8",
       "questionText": "What type of wellness pursuit fulfills you most?",
-      "chName": ". Wellness Interests",
+      "chName": "Wellness Interests",
       "questionNumber": 17,
       "followUp": false
     },
@@ -98,8 +98,8 @@
     {
       "questionName": "Q7b",
       "nextQuestion": "Q8",
-      "questionText": " Do you prefer small or large group settings?",
-      "chName": ". Wellness Interests",
+      "questionText": "Do you prefer small or large group settings?",
+      "chName": "Wellness Interests",
       "questionNumber": 19,
       "followUp": true
     },
@@ -123,7 +123,7 @@
       "questionName": "Q7a",
       "nextQuestion": "Q8",
       "questionText": "Would you like access to virtual coaching?",
-      "chName": ". Wellness Interests",
+      "chName": "Wellness Interests",
       "questionNumber": 18,
       "followUp": true
     },
@@ -131,7 +131,7 @@
       "questionName": "Q7d",
       "nextQuestion": "Q8",
       "questionText": "What duration works best for you?",
-      "chName": ". Wellness Interests",
+      "chName": "Wellness Interests",
       "questionNumber": 20,
       "followUp": true
     },
@@ -154,7 +154,7 @@
     {
       "questionName": "Q9a",
       "nextQuestion": "Q10",
-      "questionText": " Do you prefer short-term or ongoing detox plans?",
+      "questionText": "Do you prefer short-term or ongoing detox plans?",
       "chName": "Personalization",
       "questionNumber": 26,
       "followUp": true
@@ -162,7 +162,7 @@
     {
       "questionName": "Q3a",
       "nextQuestion": "Q4",
-      "questionText": " Which activities do you enjoy most?",
+      "questionText": "Which activities do you enjoy most?",
       "chName": "Personal Lifestyle",
       "questionNumber": 7,
       "followUp": true
@@ -186,7 +186,7 @@
     {
       "questionName": "Q2b",
       "nextQuestion": "Q3",
-      "questionText": "What’s your biggest challenge in balancing work and wellness?",
+      "questionText": "What's your biggest challenge in balancing work and wellness?",
       "chName": "Personal Lifestyle",
       "questionNumber": 5,
       "followUp": true
@@ -226,7 +226,7 @@
     {
       "questionName": "Q1c",
       "nextQuestion": "Q2",
-      "questionText": " Would you like shared family wellness plans?",
+      "questionText": "Would you like shared family wellness plans?",
       "chName": "Personal Lifestyle",
       "questionNumber": 3,
       "followUp": true
@@ -282,7 +282,7 @@
     {
       "questionName": "Q1b",
       "nextQuestion": "Q2",
-      "questionText": ": What type of wellness do you prioritize during travel?",
+      "questionText": "What type of wellness do you prioritize during travel?",
       "chName": "Personal Lifestyle",
       "questionNumber": 2,
       "followUp": true
