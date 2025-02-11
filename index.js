@@ -349,8 +349,8 @@ app.post('/api/submitUserData', async (req, res) => {
         message: 'Quiz submitted successfully!',
         data: {
           ...quizData.toObject(),
-          pdfUrl: result.secure_url // Return Cloudinary URL for the PDF file
-        }
+          pdfUrl: result.secure_url,
+          flipbookUrl,        }
       });
     }).end(pdfBytes);
   } catch (error) {
