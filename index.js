@@ -33,7 +33,8 @@ const quizSchema = new mongoose.Schema({
   userSurname: String,
   answers: Array,
   totalPoints: Number,
-  pdfUrl: String // Add pdfUrl field to schema
+  pdfUrl: String,
+  flipbookUrl: String, // Add flipbookUrl field to schema
 });
 
 const Quiz = mongoose.model('Quiz', quizSchema);
@@ -328,6 +329,18 @@ app.post('/api/submitUserData', async (req, res) => {
       // Save Cloudinary URL in the database
       quizData.pdfUrl = result.secure_url;
       await quizData.save();
+
+      
+      // Send email with PDF attachment
+          // Generate Flipbook URL using Heyzine
+          const CLIENT_ID = "d7b379a0c18dd0a7";
+          const encodedPdfUrl = encodeURIComponent(result.secure_url);
+          const flipbookUrl = `https://heyzine.com/api1?pdf=${encodedPdfUrl}&k=${CLIENT_ID}&t=${encodeURIComponent(userName)}&s=Quiz%20Results&d=1&fs=1&sh=1&pn=1&st=1`;
+    
+          // Save Flipbook URL in the database
+          console.log("Flipbook URL:", flipbookUrl);
+          quizData.flipbookUrl = flipbookUrl;
+          await quizData.save();
 
       // Send email with PDF attachment
       sendEmailWithPdf(userEmail, userName, pdfFileName, result.secure_url);
