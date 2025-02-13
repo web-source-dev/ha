@@ -372,6 +372,11 @@ app.get('/json/get', function (req, res) {
   const questionsData = require('./qustions.json');
   res.json(questionsData);
 });
+app.get('/json/options/get', function (req, res) {
+  const optionsData = require('./options.json');
+  res.json(optionsData);
+});
+
 app.listen(5000, () => {
   console.log('Server is running on port 5000');
 });
