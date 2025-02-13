@@ -296,10 +296,7 @@ app.post('/api/submitUserData', async (req, res) => {
   try {
     const { userName, userEmail, userSurname, answers, totalPoints } = req.body;
 
-    if (!userName || !userEmail || !userSurname || !answers || !totalPoints) {
-      return res.status(400).json({ message: 'Missing required fields' });
-    }
-
+    console.log('data received from wix',req.body)
     // Group answers by chapter name
     const groupedAnswers = answers.reduce((acc, answer) => {
       const question = questionsData.find(q => q.questionText === answer.questionName);
