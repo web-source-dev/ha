@@ -298,8 +298,6 @@ app.post('/api/submitUserData', async (req, res) => {
       return res.status(400).json({ message: 'Missing required fields' });
     }
 
-    const quizData = new Quiz(req.body);
-
     // Group answers by chapter name
     const groupedAnswers = answers.reduce((acc, answer) => {
       const question = questionsData.find(q => q.questionText === answer.questionName);
@@ -326,31 +324,23 @@ app.post('/api/submitUserData', async (req, res) => {
         return res.status(500).json({ message: 'Failed to upload PDF' });
       }
 
-      // Save Cloudinary URL in the database
-      quizData.pdfUrl = result.secure_url;
-      await quizData.save();
-
+      // Generate Flipbook URL using Heyzine
+      const CLIENT_ID = "d7b379a0c18dd0a7";
+      const encodedPdfUrl = encodeURIComponent(result.secure_url);
+      const flipbookUrl = `https://heyzine.com/api1?pdf=${encodedPdfUrl}&k=${CLIENT_ID}&t=${encodeURIComponent(userName)}&s=Quiz%20Results&d=1&fs=1&sh=1&pn=1&st=1`;
       
-      // Send email with PDF attachment
-          // Generate Flipbook URL using Heyzine
-          const CLIENT_ID = "d7b379a0c18dd0a7";
-          const encodedPdfUrl = encodeURIComponent(result.secure_url);
-          const flipbookUrl = `https://heyzine.com/api1?pdf=${encodedPdfUrl}&k=${CLIENT_ID}&t=${encodeURIComponent(userName)}&s=Quiz%20Results&d=1&fs=1&sh=1&pn=1&st=1`;
-    
-          // Save Flipbook URL in the database
-          console.log("Flipbook URL:", flipbookUrl);
-          quizData.flipbookUrl = flipbookUrl;
-          await quizData.save();
+      console.log("Flipbook URL:", flipbookUrl);
 
       // Send email with PDF attachment
       sendEmailWithPdf(userEmail, userName, pdfFileName, result.secure_url);
 
+      // Respond with generated URLs
       res.status(200).json({
         message: 'Quiz submitted successfully!',
         data: {
-          ...quizData.toObject(),
           pdfUrl: result.secure_url,
-          flipbookUrl,        }
+          flipbookUrl,
+        }
       });
     }).end(pdfBytes);
   } catch (error) {
@@ -358,6 +348,7 @@ app.post('/api/submitUserData', async (req, res) => {
     res.status(500).json({ message: 'Failed to submit quiz.' });
   }
 });
+
 
 app.get('/api/getAllSubmissions', async (req, res) => {
   try {
