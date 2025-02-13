@@ -10,7 +10,9 @@ const cloudinary = require('cloudinary').v2;
 require('dotenv').config();
 
 const app = express();
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const corsOptions = {
   origin: '*',
