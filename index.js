@@ -330,8 +330,6 @@ app.post('/api/submitUserData', async (req, res) => {
       
       console.log("Flipbook URL:", flipbookUrl);
 
-      // Send email with PDF attachment
-      sendEmailWithPdf(userEmail, userName, pdfFileName, result.secure_url);
 
       // Respond with generated URLs
       res.status(200).json({
