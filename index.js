@@ -63,14 +63,14 @@ const generatePdfContent = async (userData, groupedAnswers) => {
   };
 
   const drawText = (text, options) => {
-    const words = text.split(' ');
+    const words = text.split('');
     let line = '';
     for (const word of words) {
-      const testLine = line + word + ' ';
+      const testLine = line + word + '';
       const textWidth = font.widthOfTextAtSize(testLine, options.size);
       if (textWidth > width - 2 * margin) {
         page.drawText(line, options);
-        line = word + ' ';
+        line = word + '';
         options.y -= lineSpacing;
         if (options.y < margin) {
           page = addPage();
